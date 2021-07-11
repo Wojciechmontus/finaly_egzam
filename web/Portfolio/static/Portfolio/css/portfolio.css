@@ -1,0 +1,22 @@
+.portfolio{
+    width: 100%;
+    text-align: center;
+    color: rgb(10, 10, 10);
+    transition: all ease-out .5s;
+    background: rgba(133, 129, 129, 0.9);
+}
+
+.portfolio:hover {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    color:rgb(152, 226, 152) 
+}
+
+
+
+@media (min-width: 768px) {
+    main {
+        width: 768px;
+    }
+}

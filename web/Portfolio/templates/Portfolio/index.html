@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+<title>Porfolio</title>
+
+{% load static %}
+<link rel='stylesheet' href="{% static 'Portfolio/css/portfolio.css' %}">
+<link rel='stylesheet' href="{% static 'Portfolio/css/lightbox.min.css' %}">
+{% endblock %}
+
+
+{% block fashion %}
+<div style="height:120px">
+    <!-- para bajar el contenido-->
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="portfolio">
+    <h1 style="z-index:3;">
+        Mini Lightbox
+    </h1>
+</div>
+<div style="height:170px">
+    <!-- para bajar el contenido-->
+</div>
+<div class="container">
+    <div class="row">
+        
+        {% for portfolio in portfolios %}
+        <div class="col-md-6 mt-4">
+            <a class="link-photo" data-lightbox="roadtrip" href="{{portfolio.image.url}}" title="{{portfolio.title}}">
+                <img class="img-fluid" src="{{portfolio.image.url}}" alt="demo">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block footScript %}
+{% load static %}
+<script src="{% static 'Portfolio/js/lightbox.min.js' %}"></script>
+<script>
+    const lb = lightbox();
+</script>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} <title>Empresa</title> {% endblock %}
+
+{% block fashion %}
+    <div style = "height:180px"> <!-- para bajar el contenido-->
+    </div> 
+{% endblock %}
+{% load static %}
+{% block content %}
+<div>
+
+    {% for empresa in empresas %}
+        <h2>{{ empresa.title }}</h2>
+        <img class='img-fluid' src="{{ empresa.image.url }}">
+        <br>
+        {{empresa.content | safe}}
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+

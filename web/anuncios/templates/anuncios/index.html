@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}<title>Anuncios</title>{% endblock %}
+
+{% block video %}
+<video poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/fashion.jpg" playsinline autoplay muted loop>
+    <!--source src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/fashion.webm" type="video/webm"-->
+    <source src="http://techslides.com/demos/sample-videos/small.webm" type="video/webm">
+    
+    
+    <source src="http://thenewcode.com/assets/videos/fashion.mp4" type="video/mp4">
+    </video> 
+{% endblock %}
+{% block fashion %}
+    <div id="fashion">
+    </div> 
+{% endblock %}
+{%block content%}
+<div id="contenedor">
+    <div id="content">
+    <h1>Curiosidades</h1>
+    <div  class="anuncio">
+        {% for anuncio in anuncios %}
+        <div class="individual">
+            <h2>{{ anuncio.title }}</h2>
+            <p>
+                <img src="{{ anuncio.image.url }}"  alt="{{anuncio.title}}">
+                <span class="datos">{{ anuncio.created }} - {{ anuncio.author }}</span>
+                {{ anuncio.content | safe | truncatewords:25|linebreaks }}
+            </p><p>LEER MÁS...</p>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>
+{% endblock%}
